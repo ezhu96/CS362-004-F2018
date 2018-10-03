@@ -10,6 +10,10 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state,
 int gainCard(int supplyPos, struct gameState *state, int toFlag, int player);
 int getCost(int cardNumber);
 int adventurerEffect(struct gameState *state);
+int great_hallEffect(struct gameState *state, int handPos);
+int sea_hagEffect(struct gameState *state);
+int smithyEffect(struct gameState *state, int handPos);
+int villageEffect(struct gameState *state, int handPos);
 int cardEffect(int card, int choice1, int choice2, int choice3, 
 	       struct gameState *state, int handPos, int *bonus);
 
