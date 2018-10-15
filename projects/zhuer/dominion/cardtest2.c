@@ -168,5 +168,13 @@ int main()
   asserttrue(G.playedCards[0] == GCopy.hand[playerOne][handPos]);
   printf("Asserting: G.playedCardCount == GCopy.playedCardCount+1\n");
   asserttrue(G.playedCardCount == GCopy.playedCardCount+1);
+
+  if(asserterrors){
+    printf("CARD TEST 2 FAILED!!! (%d assertion errors)\n", asserterrors);
+  }
+  else {
+    printf("CARD TEST 2 PASSED!!!\n");
+  }
+
   return 0;
 }

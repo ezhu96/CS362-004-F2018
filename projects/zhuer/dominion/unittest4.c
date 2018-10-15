@@ -53,5 +53,12 @@ int main()
   printf("Asserting: G.coins = playerOneOriginalCoinCount - 1\n");
   asserttrue(G.coins = playerOneOriginalCoinCount - 1);
 
+  if(asserterrors){
+    printf("UNIT TEST 4 FAILED!!! (%d assertion errors)\n", asserterrors);
+  }
+  else {
+    printf("UNIT TEST 4 PASSED!!!\n");
+  }
+
   return 0;
 }

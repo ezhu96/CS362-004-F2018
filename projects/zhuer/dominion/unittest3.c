@@ -138,5 +138,12 @@ int main()
   printf("\nTesting getCost of non-existant card, devil. (It should return -1)\n");
   asserttrue(getCost(devil) == -1);
 
+  if(asserterrors){
+    printf("UNIT TEST 3 FAILED!!! (%d assertion errors)\n", asserterrors);
+  }
+  else {
+    printf("UNIT TEST 3 PASSED!!!\n");
+  }
+
   return 0;
 }

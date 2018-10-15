@@ -18,8 +18,9 @@ Pass
 G.supplyCount[adventurer] = -10;
 Asserting: supplyCount(adventurer, &G) == -10
 Pass
+UNIT TEST 1 PASSED!!!
 File 'dominion.c'
-Lines executed:16.13% of 564
+Lines executed:31.38% of 564
 Creating 'dominion.c.gcov'
 
 
@@ -77,8 +78,9 @@ After two shuffles: card numbers {
 	1
 	4
 }
+UNIT TEST 2 PASSED!!!
 File 'dominion.c'
-Lines executed:16.31% of 564
+Lines executed:31.38% of 564
 Creating 'dominion.c.gcov'
 
 
@@ -117,8 +119,9 @@ Pass
 
 Testing getCost of non-existant card, devil. (It should return -1)
 Pass
+UNIT TEST 3 PASSED!!!
 File 'dominion.c'
-Lines executed:21.63% of 564
+Lines executed:31.38% of 564
 Creating 'dominion.c.gcov'
 
 
@@ -148,8 +151,9 @@ Pass
 Updating other player's coins with +1 bonus. 	Player one coin count shouldn't change
 Asserting: G.coins = playerOneOriginalCoinCount - 1
 Pass
+UNIT TEST 4 PASSED!!!
 File 'dominion.c'
-Lines executed:21.63% of 564
+Lines executed:31.38% of 564
 Creating 'dominion.c.gcov'
 
 
@@ -457,8 +461,9 @@ Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
 Pass
 Asserting: G.playedCardCount == GCopy.playedCardCount+1
 Pass
+CARD TEST 1 FAILED!!! (6 assertion errors)
 File 'dominion.c'
-Lines executed:26.24% of 564
+Lines executed:31.38% of 564
 Creating 'dominion.c.gcov'
 
 
@@ -770,8 +775,9 @@ Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
 Assertion error
 Asserting: G.playedCardCount == GCopy.playedCardCount+1
 Assertion error
+CARD TEST 2 FAILED!!! (6 assertion errors)
 File 'dominion.c'
-Lines executed:28.90% of 564
+Lines executed:31.38% of 564
 Creating 'dominion.c.gcov'
 
 
@@ -1087,8 +1093,9 @@ Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
 Assertion error
 Asserting: G.playedCardCount == GCopy.playedCardCount+1
 Assertion error
+CARD TEST 3 FAILED!!! (4 assertion errors)
 File 'dominion.c'
-Lines executed:30.14% of 564
+Lines executed:31.38% of 564
 Creating 'dominion.c.gcov'
 
 
@@ -1405,6 +1412,7 @@ Pass
 Asserting: G.playedCardCount == GCopy.playedCardCount+1
 Pass
 Pass
+CARD TEST 4 PASSED!!!
 File 'dominion.c'
 Lines executed:31.38% of 564
 Creating 'dominion.c.gcov'

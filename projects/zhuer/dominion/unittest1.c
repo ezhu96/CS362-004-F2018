@@ -41,5 +41,12 @@ int main()
   printf("Asserting: supplyCount(adventurer, &G) == -10\n");
   asserttrue(supplyCount(adventurer, &G) == -10);
 
+  if(asserterrors){
+    printf("UNIT TEST 1 FAILED!!! (%d assertion errors)\n", asserterrors);
+  }
+  else {
+    printf("UNIT TEST 1 PASSED!!!\n");
+  }
+
   return 0;
 }

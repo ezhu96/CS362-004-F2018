@@ -131,5 +131,12 @@ int main()
 
   testShuffle(&G);
 
+  if(asserterrors){
+    printf("UNIT TEST 2 FAILED!!! (%d assertion errors)\n", asserterrors);
+  }
+  else {
+    printf("UNIT TEST 2 PASSED!!!\n");
+  }
+
   return 0;
 }
