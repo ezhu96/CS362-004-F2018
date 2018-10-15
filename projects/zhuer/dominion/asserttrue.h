@@ -4,7 +4,7 @@
 { \
 	if(!(expression)) \
 	{ \
-		fprintf(stderr, "Assertion error\n"); \
+		fprintf(stdout, "Assertion error\n"); \
 	} \
 	else \
         { \

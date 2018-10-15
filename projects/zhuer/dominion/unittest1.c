@@ -15,6 +15,10 @@ int main()
 
   int seed = 2;
 
+  printf("\n==================================================\n");
+  printf("UNIT TEST 1: supplyCount()\n");
+  printf("==================================================\n\n"); 
+
   printf ("Starting game (seed = %d).\n", seed);
 
   initializeGame(2, k, seed, &G);

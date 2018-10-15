@@ -1,0 +1,1412 @@
+
+==================================================
+UNIT TEST 1: supplyCount()
+==================================================
+
+Starting game (seed = 2).
+
+-------------------- TEST 1 --------------------
+Asserting: supplyCount(adventurer, &G) == 10
+Pass
+
+-------------------- TEST 2 --------------------
+G.supplyCount[adventurer] = 0;
+Asserting: supplyCount(adventurer, &G) == 0
+Pass
+
+-------------------- TEST 3 --------------------
+G.supplyCount[adventurer] = -10;
+Asserting: supplyCount(adventurer, &G) == -10
+Pass
+File 'dominion.c'
+Lines executed:16.13% of 564
+Creating 'dominion.c.gcov'
+
+
+==================================================
+UNIT TEST 2: shuffle()
+==================================================
+
+Starting game (seed = 2).
+Before shuffle: card numbers {
+	1
+	1
+	4
+	4
+	4
+}
+
+Shuffling...
+After one shuffle: card numbers {
+	4
+	4
+	4
+	1
+	1
+}
+
+Shuffling...
+After two shuffles: card numbers {
+	4
+	1
+	4
+	4
+	1
+}
+
+Drawing a card, then repeating the tests...
+Before shuffle: card numbers {
+	4
+	1
+	4
+	4
+}
+
+Shuffling...
+After one shuffle: card numbers {
+	4
+	4
+	4
+	1
+}
+
+Shuffling...
+After two shuffles: card numbers {
+	4
+	4
+	1
+	4
+}
+File 'dominion.c'
+Lines executed:16.31% of 564
+Creating 'dominion.c.gcov'
+
+
+==================================================
+UNIT TEST 3: getCost()
+==================================================
+
+Testing getCost of cards: curse, estate, duchy, province, copper, silver, gold, adventurer, council room, feast, gardens, mine, remodel, smithy, village, baron, great hall, minion, steward, tribute, ambassador, cutpurse, embargo, outpost, salvager, sea hag, and treasure map.
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+Pass
+
+Testing getCost of non-existant card, devil. (It should return -1)
+Pass
+File 'dominion.c'
+Lines executed:21.63% of 564
+Creating 'dominion.c.gcov'
+
+
+==================================================
+UNIT TEST 4: updateCoins()
+==================================================
+
+Starting game (seed = 2).
+Player one coin count: 4
+
+-------------------- TEST 1 --------------------
+Updating coins with +0 bonus. Coin count shouldn't change.
+Asserting: G.coins = playerOneOriginalCoinCount
+Pass
+
+-------------------- TEST 2 --------------------
+Updating coins with +1 bonus.
+Asserting: G.coins = playerOneOriginalCoinCount + 1
+Pass
+
+-------------------- TEST 3 --------------------
+Updating coins with -2 bonus.
+Asserting: G.coins = playerOneOriginalCoinCount - 1
+Pass
+
+-------------------- TEST 4 --------------------
+Updating other player's coins with +1 bonus. 	Player one coin count shouldn't change
+Asserting: G.coins = playerOneOriginalCoinCount - 1
+Pass
+File 'dominion.c'
+Lines executed:21.63% of 564
+Creating 'dominion.c.gcov'
+
+
+==================================================
+CARD TEST 1: cardEffect(smithy)
+==================================================
+
+Starting game (seed = 2).
+
+-------------------- TEST 1 --------------------
+Activating smithy card effect.
+Looking for differences in gameState (+3 cards drawn from deck and card at handPos played).
+Asserting: G.numPlayers == GCopy.numPlayers
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.outpostPlayed == GCopy.outpostPlayed
+Pass
+Asserting: G.outpostTurn == GCopy.outpostTurn
+Pass
+Asserting: G.whoseTurn == GCopy.whoseTurn
+Pass
+Asserting: G.phase == GCopy.phase
+Pass
+Asserting: G.numActions == GCopy.numActions
+Pass
+Asserting: G.coins == GCopy.coins
+Pass
+Asserting: G.numBuys == GCopy.numBuys
+Pass
+Asserting: G.hand[playerOne][handPos] == GCopy.hand[playerOne][GCopy.handCount[playerOne]-1])
+Assertion error
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]+2
+Assertion error
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-3)
+Assertion error
+Asserting: G.discardCount[playerOne] == GCopy.discardCount[playerOne])
+Pass
+Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
+Pass
+Asserting: G.playedCardCount == GCopy.playedCardCount+1
+Pass
+
+-------------------- TEST 2 --------------------
+choice1 = 1, choice2 = 1, choice3 = 1, handPos = 1, bonus = 1
+Activating smithy card effect.
+Looking for differences in gameState (+3 cards drawn from deck and card at handPos played).
+Asserting: G.numPlayers == GCopy.numPlayers
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.outpostPlayed == GCopy.outpostPlayed
+Pass
+Asserting: G.outpostTurn == GCopy.outpostTurn
+Pass
+Asserting: G.whoseTurn == GCopy.whoseTurn
+Pass
+Asserting: G.phase == GCopy.phase
+Pass
+Asserting: G.numActions == GCopy.numActions
+Pass
+Asserting: G.coins == GCopy.coins
+Pass
+Asserting: G.numBuys == GCopy.numBuys
+Pass
+Asserting: G.hand[playerOne][handPos] == GCopy.hand[playerOne][GCopy.handCount[playerOne]-1])
+Assertion error
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]+2
+Assertion error
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-3)
+Assertion error
+Asserting: G.discardCount[playerOne] == GCopy.discardCount[playerOne])
+Pass
+Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
+Pass
+Asserting: G.playedCardCount == GCopy.playedCardCount+1
+Pass
+File 'dominion.c'
+Lines executed:26.24% of 564
+Creating 'dominion.c.gcov'
+
+
+==================================================
+CARD TEST 2: cardEffect(adventurer)
+==================================================
+
+Starting game (seed = 2).
+
+-------------------- TEST 1 --------------------
+Activating adventurer card effect.
+Looking for differences in gameState (+2 treasure cards drawn from deck, other cards before the 2 treasure cards discarded, and card at handPos played).
+Asserting: G.numPlayers == GCopy.numPlayers
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.outpostPlayed == GCopy.outpostPlayed
+Pass
+Asserting: G.outpostTurn == GCopy.outpostTurn
+Pass
+Asserting: G.whoseTurn == GCopy.whoseTurn
+Pass
+Asserting: G.phase == GCopy.phase
+Pass
+Asserting: G.numActions == GCopy.numActions
+Pass
+Asserting: G.coins == GCopy.coins
+Pass
+Asserting: G.numBuys == GCopy.numBuys
+Pass
+Asserting: G.hand[playerOne][handPos] == GCopy.hand[playerOne][GCopy.handCount[playerOne]-1])
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]+1
+Assertion error
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-G.discardCount[playerOne]-1)
+Pass
+Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
+Assertion error
+Asserting: G.playedCardCount == GCopy.playedCardCount+1
+Assertion error
+
+-------------------- TEST 2 --------------------
+choice1 = 1, choice2 = 1, choice3 = 1, handPos = 1, bonus = 1
+Activating adventurer card effect.
+Looking for differences in gameState (+2 treasure cards drawn from deck, other cards before the 2 treasure cards discarded, and card at handPos played).
+Asserting: G.numPlayers == GCopy.numPlayers
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.outpostPlayed == GCopy.outpostPlayed
+Pass
+Asserting: G.outpostTurn == GCopy.outpostTurn
+Pass
+Asserting: G.whoseTurn == GCopy.whoseTurn
+Pass
+Asserting: G.phase == GCopy.phase
+Pass
+Asserting: G.numActions == GCopy.numActions
+Pass
+Asserting: G.coins == GCopy.coins
+Pass
+Asserting: G.numBuys == GCopy.numBuys
+Pass
+Asserting: G.hand[playerOne][handPos] == GCopy.hand[playerOne][GCopy.handCount[playerOne]-1])
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]+1
+Assertion error
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-G.discardCount[playerOne]-1)
+Pass
+Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
+Assertion error
+Asserting: G.playedCardCount == GCopy.playedCardCount+1
+Assertion error
+File 'dominion.c'
+Lines executed:28.90% of 564
+Creating 'dominion.c.gcov'
+
+
+==================================================
+CARD TEST 3: cardEffect(village)
+==================================================
+
+Starting game (seed = 2).
+
+-------------------- TEST 1 --------------------
+Activating village card effect.
+Looking for differences in gameState (+3 cards drawn from deck and card at handPos played).
+Asserting: G.numPlayers == GCopy.numPlayers
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.outpostPlayed == GCopy.outpostPlayed
+Pass
+Asserting: G.outpostTurn == GCopy.outpostTurn
+Pass
+Asserting: G.whoseTurn == GCopy.whoseTurn
+Pass
+Asserting: G.phase == GCopy.phase
+Pass
+Asserting: G.numActions == GCopy.numActions+2
+Pass
+Asserting: G.coins == GCopy.coins
+Pass
+Asserting: G.numBuys == GCopy.numBuys
+Pass
+Asserting: G.hand[playerOne][handPos] == GCopy.hand[playerOne][GCopy.handCount[playerOne]-1])
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-1)
+Pass
+Asserting: G.discardCount[playerOne] == GCopy.discardCount[playerOne])
+Pass
+Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
+Assertion error
+Asserting: G.playedCardCount == GCopy.playedCardCount+1
+Assertion error
+
+-------------------- TEST 2 --------------------
+choice1 = 1, choice2 = 1, choice3 = 1, handPos = 1, bonus = 1
+Activating village card effect.
+Looking for differences in gameState (+3 cards drawn from deck and card at handPos played).
+Asserting: G.numPlayers == GCopy.numPlayers
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.outpostPlayed == GCopy.outpostPlayed
+Pass
+Asserting: G.outpostTurn == GCopy.outpostTurn
+Pass
+Asserting: G.whoseTurn == GCopy.whoseTurn
+Pass
+Asserting: G.phase == GCopy.phase
+Pass
+Asserting: G.numActions == GCopy.numActions+2
+Pass
+Asserting: G.coins == GCopy.coins
+Pass
+Asserting: G.numBuys == GCopy.numBuys
+Pass
+Asserting: G.hand[playerOne][handPos] == GCopy.hand[playerOne][GCopy.handCount[playerOne]-1])
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-1)
+Pass
+Asserting: G.discardCount[playerOne] == GCopy.discardCount[playerOne])
+Pass
+Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
+Assertion error
+Asserting: G.playedCardCount == GCopy.playedCardCount+1
+Assertion error
+Assertion error
+File 'dominion.c'
+Lines executed:30.14% of 564
+Creating 'dominion.c.gcov'
+
+
+==================================================
+CARD TEST 4: cardEffect(great hall)
+==================================================
+
+Starting game (seed = 2).
+
+-------------------- TEST 1 --------------------
+Activating great hall card effect.
+Looking for differences in gameState (+3 cards drawn from deck and card at handPos played).
+Asserting: G.numPlayers == GCopy.numPlayers
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.outpostPlayed == GCopy.outpostPlayed
+Pass
+Asserting: G.outpostTurn == GCopy.outpostTurn
+Pass
+Asserting: G.whoseTurn == GCopy.whoseTurn
+Pass
+Asserting: G.phase == GCopy.phase
+Pass
+Asserting: G.numActions == GCopy.numActions+1
+Pass
+Asserting: G.coins == GCopy.coins
+Pass
+Asserting: G.numBuys == GCopy.numBuys
+Pass
+Asserting: G.hand[playerOne][handPos] == GCopy.hand[playerOne][GCopy.handCount[playerOne]-1])
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-1)
+Pass
+Asserting: G.discardCount[playerOne] == GCopy.discardCount[playerOne])
+Pass
+Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
+Pass
+Asserting: G.playedCardCount == GCopy.playedCardCount+1
+Pass
+
+-------------------- TEST 2 --------------------
+choice1 = 1, choice2 = 1, choice3 = 1, handPos = 1, bonus = 1
+Activating great hall card effect.
+Looking for differences in gameState (+3 cards drawn from deck and card at handPos played).
+Asserting: G.numPlayers == GCopy.numPlayers
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.supplyCount[i] == GCopy.supplyCount[i]
+Pass
+Asserting: G.embargoTokens[i] == GCopy.embargoTokens[i]
+Pass
+Asserting: G.outpostPlayed == GCopy.outpostPlayed
+Pass
+Asserting: G.outpostTurn == GCopy.outpostTurn
+Pass
+Asserting: G.whoseTurn == GCopy.whoseTurn
+Pass
+Asserting: G.phase == GCopy.phase
+Pass
+Asserting: G.numActions == GCopy.numActions+1
+Pass
+Asserting: G.coins == GCopy.coins
+Pass
+Asserting: G.numBuys == GCopy.numBuys
+Pass
+Asserting: G.hand[playerOne][handPos] == GCopy.hand[playerOne][GCopy.handCount[playerOne]-1])
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]
+Pass
+Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])
+Pass
+Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-1)
+Pass
+Asserting: G.discardCount[playerOne] == GCopy.discardCount[playerOne])
+Pass
+Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
+Pass
+Asserting: G.playedCardCount == GCopy.playedCardCount+1
+Pass
+Pass
+File 'dominion.c'
+Lines executed:31.38% of 564
+Creating 'dominion.c.gcov'
+

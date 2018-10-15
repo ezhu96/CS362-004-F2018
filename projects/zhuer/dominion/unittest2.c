@@ -117,6 +117,10 @@ int main()
            sea_hag, tribute, smithy};
   int seed = 2;
 
+  printf("\n==================================================\n");
+  printf("UNIT TEST 2: shuffle()\n");
+  printf("==================================================\n\n"); 
+
   printf ("Starting game (seed = %d).\n", seed);
   initializeGame(2, k, seed, &G);
 

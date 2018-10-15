@@ -6,7 +6,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-//Unit test for cardEffect(smithy) found in dominion.c
+//Unit test for cardEffect(adventurer) found in dominion.c
 int main()
 {
   struct gameState G;
@@ -22,9 +22,10 @@ int main()
   int bonus = 0;
   int playerOne = 0;
   int i;
+  int drawnCoinValue = 0;
 
   printf("\n==================================================\n");
-  printf("CARD TEST 1: cardEffect(smithy)\n");
+  printf("CARD TEST 2: cardEffect(adventurer)\n");
   printf("==================================================\n\n"); 
 
   printf ("Starting game (seed = %d).\n", seed);
@@ -32,10 +33,10 @@ int main()
   memcpy(&GCopy, &G, sizeof(struct gameState));
 
   printf("\n-------------------- TEST 1 --------------------\n");
-  printf("Activating smithy card effect.\n");
-  cardEffect(smithy, choice1, choice2, choice3, &G, handPos, &bonus);
+  printf("Activating adventurer card effect.\n");
+  cardEffect(adventurer, choice1, choice2, choice3, &G, handPos, &bonus);
   printf("Looking for differences in gameState ");
-  printf("(+3 cards drawn from deck and card at handPos played).\n");
+  printf("(+2 treasure cards drawn from deck, other cards before the 2 treasure cards discarded, and card at handPos played).\n");
   printf("Asserting: G.numPlayers == GCopy.numPlayers\n");
   asserttrue(G.numPlayers == GCopy.numPlayers);
   for(i=0; i<treasure_map+1; i++){
@@ -54,6 +55,24 @@ int main()
   asserttrue(G.phase == GCopy.phase);
   printf("Asserting: G.numActions == GCopy.numActions\n");
   asserttrue(G.numActions == GCopy.numActions);
+  for(i=G.handCount[playerOne]-2; i<G.handCount[playerOne]; i++){
+    if(G.hand[playerOne][i] == copper){
+      drawnCoinValue++;
+    }
+    else if(G.hand[playerOne][i] == silver){
+      drawnCoinValue+=2;
+    }
+    else if(G.hand[playerOne][i] == gold){
+      drawnCoinValue+=3;
+    }
+    else {
+      printf("ERROR! Treasure card wasn't drawn!\n");
+      drawnCoinValue = -10;
+    }
+  }
+  if(drawnCoinValue < 2){
+    printf("Last two cards of player one's hand aren't treasures.\n");
+  }
   printf("Asserting: G.coins == GCopy.coins\n");
   asserttrue(G.coins == GCopy.coins);
   printf("Asserting: G.numBuys == GCopy.numBuys\n");
@@ -64,16 +83,14 @@ int main()
     printf("Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]\n");
     asserttrue(G.hand[playerOne][i] == GCopy.hand[playerOne][i]);
   }
-  printf("Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]+2\n");
-  asserttrue(G.handCount[playerOne] == GCopy.handCount[playerOne]+2);
-  for(i=0; i<GCopy.deckCount[playerOne]-3; i++){
+  printf("Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]+1\n");
+  asserttrue(G.handCount[playerOne] == GCopy.handCount[playerOne]+1);
+  for(i=0; i<GCopy.deckCount[playerOne]-G.discardCount[playerOne]; i++){
     printf("Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])\n");
     asserttrue(G.deck[playerOne][i] == GCopy.deck[playerOne][i]);
   }
-  printf("Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-3)\n");
-  asserttrue(G.deckCount[playerOne] == GCopy.deckCount[playerOne]-3);
-  printf("Asserting: G.discardCount[playerOne] == GCopy.discardCount[playerOne])\n");
-  asserttrue(G.discardCount[playerOne] == GCopy.discardCount[playerOne]);
+  printf("Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-G.discardCount[playerOne]-1)\n");
+  asserttrue(G.deckCount[playerOne] == GCopy.deckCount[playerOne]-G.discardCount[playerOne]-1);
   printf("Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]\n");
   asserttrue(G.playedCards[0] == GCopy.hand[playerOne][handPos]);
   printf("Asserting: G.playedCardCount == GCopy.playedCardCount+1\n");
@@ -89,10 +106,10 @@ int main()
   handPos++;
   bonus++;
 
-  printf("Activating smithy card effect.\n");
-  cardEffect(smithy, choice1, choice2, choice3, &G, handPos, &bonus);
+  printf("Activating adventurer card effect.\n");
+  cardEffect(adventurer, choice1, choice2, choice3, &G, handPos, &bonus);
   printf("Looking for differences in gameState ");
-  printf("(+3 cards drawn from deck and card at handPos played).\n");
+  printf("(+2 treasure cards drawn from deck, other cards before the 2 treasure cards discarded, and card at handPos played).\n");
   printf("Asserting: G.numPlayers == GCopy.numPlayers\n");
   asserttrue(G.numPlayers == GCopy.numPlayers);
   for(i=0; i<treasure_map+1; i++){
@@ -111,27 +128,42 @@ int main()
   asserttrue(G.phase == GCopy.phase);
   printf("Asserting: G.numActions == GCopy.numActions\n");
   asserttrue(G.numActions == GCopy.numActions);
+  for(i=G.handCount[playerOne]-2; i<G.handCount[playerOne]; i++){
+    if(G.hand[playerOne][i] == copper){
+      drawnCoinValue++;
+    }
+    else if(G.hand[playerOne][i] == silver){
+      drawnCoinValue+=2;
+    }
+    else if(G.hand[playerOne][i] == gold){
+      drawnCoinValue+=3;
+    }
+    else {
+      printf("ERROR! Treasure card wasn't drawn!\n");
+      drawnCoinValue = -10;
+    }
+  }
+  if(drawnCoinValue < 2){
+    printf("Last two cards of player one's hand aren't treasures.\n");
+  }
   printf("Asserting: G.coins == GCopy.coins\n");
   asserttrue(G.coins == GCopy.coins);
   printf("Asserting: G.numBuys == GCopy.numBuys\n");
   asserttrue(G.numBuys == GCopy.numBuys);
   printf("Asserting: G.hand[playerOne][handPos] == GCopy.hand[playerOne][GCopy.handCount[playerOne]-1])\n");
   asserttrue(G.hand[playerOne][handPos] == GCopy.hand[playerOne][GCopy.handCount[playerOne]-1]);
-
   for(i=handPos+1; i<GCopy.handCount[playerOne]-1; i++){
     printf("Asserting: G.hand[playerOne][i] == GCopy.hand[playerOne][i]\n");
     asserttrue(G.hand[playerOne][i] == GCopy.hand[playerOne][i]);
   }
-  printf("Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]+2\n");
-  asserttrue(G.handCount[playerOne] == GCopy.handCount[playerOne]+2);
-  for(i=0; i<GCopy.deckCount[playerOne]-3; i++){
+  printf("Asserting: G.handCount[playerOne] == GCopy.handCount[playerOne]+1\n");
+  asserttrue(G.handCount[playerOne] == GCopy.handCount[playerOne]+1);
+  for(i=0; i<GCopy.deckCount[playerOne]-G.discardCount[playerOne]; i++){
     printf("Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])\n");
     asserttrue(G.deck[playerOne][i] == GCopy.deck[playerOne][i]);
   }
-  printf("Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-3)\n");
-  asserttrue(G.deckCount[playerOne] == GCopy.deckCount[playerOne]-3);
-  printf("Asserting: G.discardCount[playerOne] == GCopy.discardCount[playerOne])\n");
-  asserttrue(G.discardCount[playerOne] == GCopy.discardCount[playerOne]);
+  printf("Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-G.discardCount[playerOne]-1)\n");
+  asserttrue(G.deckCount[playerOne] == GCopy.deckCount[playerOne]-G.discardCount[playerOne]-1);
   printf("Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]\n");
   asserttrue(G.playedCards[0] == GCopy.hand[playerOne][handPos]);
   printf("Asserting: G.playedCardCount == GCopy.playedCardCount+1\n");

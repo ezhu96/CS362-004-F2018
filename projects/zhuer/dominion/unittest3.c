@@ -41,6 +41,10 @@ int main()
   int i;
   int devil = 666;
 
+  printf("\n==================================================\n");
+  printf("UNIT TEST 3: getCost()\n");
+  printf("==================================================\n\n"); 
+
   printf("Testing getCost of cards: curse, estate, duchy, province, copper, silver, gold, adventurer, council room, feast, gardens, mine, remodel, smithy, village, baron, great hall, minion, steward, tribute, ambassador, cutpurse, embargo, outpost, salvager, sea hag, and treasure map.\n");
   
   for(i=0; i<27; i++)

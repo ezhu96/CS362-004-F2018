@@ -18,6 +18,10 @@ int main()
   int playerTwo = 1;
   int playerOneOriginalCoinCount;
 
+  printf("\n==================================================\n");
+  printf("UNIT TEST 4: updateCoins()\n");
+  printf("==================================================\n\n"); 
+
   printf ("Starting game (seed = %d).\n", seed);
 
   initializeGame(2, k, seed, &G);
