@@ -6,6 +6,7 @@
 #include <math.h>
 #include <stdlib.h>
 
+//Unit test for the getCost() function found in dominion.c
 int main()
 {
   int cases[27] = {

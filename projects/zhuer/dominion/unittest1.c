@@ -6,6 +6,7 @@
 #include <math.h>
 #include <stdlib.h>
 
+//Unit test for supplyCount() function found in dominion.c
 int main()
 {
   struct gameState G;

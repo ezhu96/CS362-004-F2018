@@ -109,6 +109,7 @@ void testShuffle(struct gameState *state) {
   }
 }
 
+//Unit test for the shuffle() function found in dominion.c
 int main()
 {
   struct gameState G;
