@@ -1087,7 +1087,6 @@ Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]
 Assertion error
 Asserting: G.playedCardCount == GCopy.playedCardCount+1
 Assertion error
-Assertion error
 File 'dominion.c'
 Lines executed:30.14% of 564
 Creating 'dominion.c.gcov'
