@@ -135,6 +135,5 @@ int main()
   asserttrue(G.playedCards[0] == GCopy.hand[playerOne][handPos]);
   printf("Asserting: G.playedCardCount == GCopy.playedCardCount+1\n");
   asserttrue(G.playedCardCount == GCopy.playedCardCount+1);
-  asserttrue(G.playedCardCount == GCopy.playedCardCount+1);
   return 0;
 }
