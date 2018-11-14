@@ -112,9 +112,11 @@ int main () {
       ((char*)&G)[i] = floor(Random() * 256);
     }
     p = floor(Random() * 2);
+    G.whoseTurn = p;
     G.deckCount[p] = floor(Random() * MAX_DECK);
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
+    G.playedCardCount = floor(Random() * (MAX_DECK-1));
     checkAdventurerCardEffect(p, &G);
   }
 
@@ -133,6 +135,7 @@ int main () {
     }
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
+    G.playedCardCount = floor(Random() * (MAX_DECK-1));
     checkAdventurerCardEffect(p, &G);
   }
 
