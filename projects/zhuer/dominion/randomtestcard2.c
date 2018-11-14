@@ -13,10 +13,9 @@ int getRandomInt() {
   return Random() * INT_MAX * pow(-1, floor(Random() * 2));
 }
 
-int checkSmithyCardEffect(int p, struct gameState *post) {
-  printf("Checking Smithy card effect.\n");
+int checkVillageCardEffect(int p, struct gameState *post) {
+  printf("Checking Village card effect.\n");
   struct gameState pre;
-  int i;
   int choice1 = getRandomInt();
   int choice2 = getRandomInt();
   int choice3 = getRandomInt();
@@ -26,25 +25,22 @@ int checkSmithyCardEffect(int p, struct gameState *post) {
 
   int r;
   
-  r = cardEffect(smithy, choice1, choice2, choice3, post, handPos, &bonus);
+  r = cardEffect(village, choice1, choice2, choice3, post, handPos, &bonus);
 
-  for (i=0; i<3; i++){  
-  
-    if (pre.deckCount[p] > 0) {
-      pre.handCount[p]++;
-      pre.hand[p][pre.handCount[p]-1] = pre.deck[p][pre.deckCount[p]-1];
-      pre.deckCount[p]--;
-    } else if (pre.discardCount[p] > 0) {
-      memcpy(pre.deck[p], post->deck[p], sizeof(int) * pre.discardCount[p]);
-      memcpy(pre.discard[p], post->discard[p], sizeof(int)*pre.discardCount[p]);
-      pre.hand[p][post->handCount[p]-1] = post->hand[p][post->handCount[p]-1];
-      pre.handCount[p]++;
-      pre.deckCount[p] = pre.discardCount[p]-1;
-      pre.discardCount[p] = 0;
-    }
-
+  if (pre.deckCount[p] > 0) {
+    pre.handCount[p]++;
+    pre.hand[p][pre.handCount[p]-1] = pre.deck[p][pre.deckCount[p]-1];
+    pre.deckCount[p]--;
+  } else if (pre.discardCount[p] > 0) {
+    memcpy(pre.deck[p], post->deck[p], sizeof(int) * pre.discardCount[p]);
+    memcpy(pre.discard[p], post->discard[p], sizeof(int)*pre.discardCount[p]);
+    pre.hand[p][post->handCount[p]-1] = post->hand[p][post->handCount[p]-1];
+    pre.handCount[p]++;
+    pre.deckCount[p] = pre.discardCount[p]-1;
+    pre.discardCount[p] = 0;
   }
-  //smithy played
+  pre.numActions += 2;
+  //village played
   discardCard(handPos, p, &pre, 0);
 
   asserttrue(r == 0);
@@ -59,7 +55,7 @@ int main () {
 
   struct gameState G;
 
-  printf ("Testing Smithy card effect.\n");
+  printf ("Testing Village card effect.\n");
 
   printf ("RANDOM TESTS BEGIN.\n");
 
@@ -76,7 +72,7 @@ int main () {
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
     G.playedCardCount = floor(Random() * (MAX_DECK-1));
-    checkSmithyCardEffect(p, &G);
+    checkVillageCardEffect(p, &G);
   }
 
   printf ("RANDOM TESTS END.\n");
