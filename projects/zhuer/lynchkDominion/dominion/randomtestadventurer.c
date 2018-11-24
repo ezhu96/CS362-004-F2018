@@ -27,10 +27,8 @@ int getTreasuresInDeck(int p, struct gameState *state) {
 }
 
 int checkAdventurerCardEffect(int p, struct gameState *post) {
-  printf("Checking Adventurer card effect.\n");
   struct gameState pre;
   int i;
-  int drawnCoinValue = 0;
   int choice1 = getRandomInt();
   int choice2 = getRandomInt();
   int choice3 = getRandomInt();
@@ -50,46 +48,42 @@ int checkAdventurerCardEffect(int p, struct gameState *post) {
 
   asserttrue(r == 0);
 
+  printf("Asserting (post->numPlayers == pre.numPlayers)\n");
   asserttrue(post->numPlayers == pre.numPlayers);
+  printf("Asserting (post->supplyCount[i] == pre.supplyCount[i]) && (post->embargoTokens[i] == pre.embargoTokens[i])\n");
   for(i=0; i<treasure_map+1; i++){
     asserttrue(post->supplyCount[i] == pre.supplyCount[i]);
     asserttrue(post->embargoTokens[i] == pre.embargoTokens[i]);
   }
+  printf("Asserting (post->outpostPlayed == pre.outpostPlayed)\n");
   asserttrue(post->outpostPlayed == pre.outpostPlayed);
+  printf("Asserting (post->outpostTurn == pre.outpostTurn)\n");
   asserttrue(post->outpostTurn == pre.outpostTurn);
+  printf("Asserting (post->whoseTurn == pre.whoseTurn)\n");
   asserttrue(post->whoseTurn == pre.whoseTurn);
+  printf("Asserting (post->phase == pre.phase)\n");
   asserttrue(post->phase == pre.phase);
+  printf("Asserting (post->numActions == pre.numActions)\n");
   asserttrue(post->numActions == pre.numActions);
-  for(i=post->handCount[p]-2; i<post->handCount[p]; i++){
-    if(post->hand[p][i] == copper){
-      drawnCoinValue++;
-    }
-    else if(post->hand[p][i] == silver){
-      drawnCoinValue+=2;
-    }
-    else if(post->hand[p][i] == gold){
-      drawnCoinValue+=3;
-    }
-    else {
-      printf("ERROR! Treasure card wasn't drawn!\n");
-      drawnCoinValue = -10;
-    }
-  }
-  if(drawnCoinValue < 2){
-    printf("Last two cards of player one's hand aren't treasures.\n");
-  }
+  printf("Asserting (post->coins == pre.coins)\n");
   asserttrue(post->coins == pre.coins);
+  printf("Asserting (post->numBuys == pre.numBuys)\n");
   asserttrue(post->numBuys == pre.numBuys);
-  asserttrue(post->hand[p][handPos] == pre.hand[p][pre.handCount[p]-1]);
+  printf("Asserting asserttrue(post->hand[p][i] == pre.hand[p][i])\n");
   for(i=handPos+1; i<pre.handCount[p]-1; i++){
     asserttrue(post->hand[p][i] == pre.hand[p][i]);
   }
+  printf("Asserting (post->handCount[p] == pre.handCount[p]+1)\n");
   asserttrue(post->handCount[p] == pre.handCount[p]+1);
+  printf("Asserting asserttrue(post->deck[p][i] == pre.deck[p][i])\n");
   for(i=0; i<pre.deckCount[p]-post->discardCount[p]; i++){
     asserttrue(post->deck[p][i] == pre.deck[p][i]);
   }
-  asserttrue(post->deckCount[p] == pre.deckCount[p]-post->discardCount[p]-1);
-  asserttrue(post->playedCards[0] == pre.hand[p][handPos]);
+  printf("Asserting (post->deckCount[p]+post->discardCount[p]<= pre.deckCount[p]+pre.discardCount[p])\n");
+  asserttrue(post->deckCount[p]+post->discardCount[p]<= pre.deckCount[p]+pre.discardCount[p]);
+  printf("Asserting (post->playedCards[post->playedCardCount-1] == pre.hand[p][handPos])\n");
+  asserttrue(post->playedCards[post->playedCardCount-1] == pre.hand[p][handPos]);
+  printf("Asserting (post->playedCardCount == pre.playedCardCount+1)\n");
   asserttrue(post->playedCardCount == pre.playedCardCount+1);
   return 0;
 }
@@ -117,6 +111,7 @@ int main () {
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
     G.playedCardCount = floor(Random() * (MAX_DECK-1));
+    printf("Random test #%d, Checking Adventurer card effect.\n", n);
     checkAdventurerCardEffect(p, &G);
   }
 
@@ -128,6 +123,7 @@ int main () {
       ((char*)&G)[i] = floor(Random() * 256);
     }
     p = floor(Random() * 2);
+    G.whoseTurn = p;
     G.deckCount[p] = floor(Random() * (MAX_DECK-2))+2;
     for (j = 0; j < 3; j++) {
       c = floor(Random() * (G.deckCount[p]-1));
@@ -136,6 +132,7 @@ int main () {
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
     G.playedCardCount = floor(Random() * (MAX_DECK-1));
+    printf("Fixed random test #%d, Checking Adventurer card effect.\n", n);
     checkAdventurerCardEffect(p, &G);
   }
 

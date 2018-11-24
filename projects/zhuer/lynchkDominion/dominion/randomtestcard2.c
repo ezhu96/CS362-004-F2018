@@ -14,7 +14,6 @@ int getRandomInt() {
 }
 
 int checkVillageCardEffect(int p, struct gameState *post) {
-  printf("Checking Village card effect.\n");
   struct gameState pre;
   int choice1 = getRandomInt();
   int choice2 = getRandomInt();
@@ -72,6 +71,7 @@ int main () {
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
     G.playedCardCount = floor(Random() * (MAX_DECK-1));
+    printf("Random test #%d. Checking Village card effect.\n", n);
     checkVillageCardEffect(p, &G);
   }
 

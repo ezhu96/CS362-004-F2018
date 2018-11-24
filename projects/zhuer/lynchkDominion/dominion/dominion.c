@@ -650,26 +650,25 @@ int getCost(int cardNumber)
 **********************************/
 int smithyEffect(int currentPlayer, struct gameState *state, int handPos){
   //+3 Cards
-  for (int i = 0; i < 4; i++)
+  for (int i = 0; i < 3; i++)
   {
     drawCard(currentPlayer, state);
   }
       
   //discard card from hand
   discardCard(handPos, currentPlayer, state, 0);
-  discardCard(handPos-1, currentPlayer, state, 0);
 
   return 0;
 }
 
-int adventurerEffect(int drawntreasure, struct gameState *state, int currentPlayer, int z, int cardDrawn, int *temphand){
+int adventurerEffect(int drawntreasure, struct gameState *state, int currentPlayer, int z, int cardDrawn, int *temphand, int handPos){
   while(drawntreasure<2){
-    if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
-      shuffle(currentPlayer, state);
+    if (state->deckCount[currentPlayer] <1){//if the deck is empty, break the loop
+      break;
     }
     drawCard(currentPlayer, state);
     cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
-    if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold || cardDrawn == province )
+    if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
       drawntreasure++;
     else{
       temphand[z]=cardDrawn;
@@ -681,6 +680,8 @@ int adventurerEffect(int drawntreasure, struct gameState *state, int currentPlay
     state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
     z=z-1;
   }
+
+  discardCard(handPos, currentPlayer, state, 0);
 
   return 0;
 }
@@ -761,7 +762,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   switch( card ) 
     {
     case adventurer:
-      return adventurerEffect(drawntreasure, state, currentPlayer, z, cardDrawn, temphand);
+      return adventurerEffect(drawntreasure, state, currentPlayer, z, cardDrawn, temphand, handPos);
 			
     case council_room:
       return council_roomEffect(currentPlayer, state, handPos);

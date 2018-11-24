@@ -89,8 +89,8 @@ int main()
     printf("Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])\n");
     asserttrue(G.deck[playerOne][i] == GCopy.deck[playerOne][i]);
   }
-  printf("Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-G.discardCount[playerOne]-1)\n");
-  asserttrue(G.deckCount[playerOne] == GCopy.deckCount[playerOne]-G.discardCount[playerOne]-1);
+  printf("Asserting: G.discardCount[playerOne]+G.deckCount[playerOne] <= GCopy.deckCount[playerOne]+GCopy.discardCount[playerOne])\n");
+  asserttrue(G.discardCount[playerOne]+G.deckCount[playerOne] <= GCopy.deckCount[playerOne]+GCopy.discardCount[playerOne]);
   printf("Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]\n");
   asserttrue(G.playedCards[0] == GCopy.hand[playerOne][handPos]);
   printf("Asserting: G.playedCardCount == GCopy.playedCardCount+1\n");
@@ -162,8 +162,8 @@ int main()
     printf("Asserting: G.deck[playerOne][i] == GCopy.deck[playerOne][i])\n");
     asserttrue(G.deck[playerOne][i] == GCopy.deck[playerOne][i]);
   }
-  printf("Asserting: G.deckCount[playerOne] == GCopy.deckCount[playerOne]-G.discardCount[playerOne]-1)\n");
-  asserttrue(G.deckCount[playerOne] == GCopy.deckCount[playerOne]-G.discardCount[playerOne]-1);
+  printf("Asserting: G.discardCount[playerOne]+G.deckCount[playerOne] <= GCopy.deckCount[playerOne]+GCopy.discardCount[playerOne])\n");
+  asserttrue(G.discardCount[playerOne]+G.deckCount[playerOne] <= GCopy.deckCount[playerOne]+GCopy.discardCount[playerOne]);
   printf("Asserting: G.playedCards[0] == GCopy.hand[playerOne][handPos]\n");
   asserttrue(G.playedCards[0] == GCopy.hand[playerOne][handPos]);
   printf("Asserting: G.playedCardCount == GCopy.playedCardCount+1\n");
